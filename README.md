@@ -4,7 +4,7 @@ A modular two-wheeled mobile robot platform designed for hands-on robotics educa
 
 <p align="center">
   <!-- 1. The High-Quality Inline Teaser Loop (Under 10MB) -->
-  <video src="https://github.com/user-attachments/assets/b067d669-aed4-4edb-bf29-e2d32a2a91b7.mp4" width="85%" autoplay loop muted playsinline></video>
+  <video src="https://github.com/user-attachments/assets/b067d669-aed4-4edb-bf29-e2d32a2a91b7" width="85%" autoplay loop muted playsinline></video>
   
   <br/>
   

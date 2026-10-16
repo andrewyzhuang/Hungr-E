@@ -1,8 +1,3 @@
-# Project NUEVO
-![](/assets/NUEVO.png)
-
-Lab project material for the MAE 162 robotics course (Winter/Spring 2026).
-
 ## Overview
 
 A modular two-wheeled mobile robot platform designed for hands-on robotics education. Features customizable manipulators and a dual-layer control architecture for teaching embedded systems, ROS2, and mechatronics fundamentals.

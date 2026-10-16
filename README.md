@@ -2,6 +2,16 @@
 
 A modular two-wheeled mobile robot platform designed for hands-on robotics education. Features customizable manipulators and a dual-layer control architecture for teaching embedded systems, ROS2, and mechatronics fundamentals.
 
+<p align="center">
+  <!-- 1. The High-Quality Inline Teaser Loop (Under 10MB) -->
+  <video src="https://github.com/user-attachments/assets/b067d669-aed4-4edb-bf29-e2d32a2a91b7.mp4" width="85%" autoplay loop muted playsinline></video>
+  
+  <br/>
+  
+  <!-- 2. The Professional Call-to-Action Link for the Full Demo -->
+  <h3>🎬 <a href="https://youtu.be/lLfEOGIN_Uo" target="_blank">Full Demo Video (HD)</a></h3>
+</p>
+
 ## System Architecture
 
 **Low-Level Control (Arduino)**

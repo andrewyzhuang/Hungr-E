@@ -1,41 +1,90 @@
 ## Overview
 
-A modular two-wheeled mobile robot platform designed for hands-on robotics education. Features customizable manipulators and a dual-layer control architecture for teaching embedded systems, ROS2, and mechatronics fundamentals.
+An autonomous mobile manipulator developed in ROS 2 for "burger" assembly and delivery, featuring real-time LiDAR and camera processing, sensor fusion, path planning, and control.
+
+---
+
+## Table of Contents
+- [Demo Video](#demo-video)
+- [Objectives & Results](#objectives--results)
+- [Key Algorithms & Design Approach](#key-algorithms--design-approach)
+- [System Architecture](#system-architecture)
+- [Robot CAD Model](#robot-cad-model)
+- [Repository Structure](#repository-structure)
+- [Important Documents](#important-documents)
+
+---
+
+## Demo Video
 
 https://youtu.be/lLfEOGIN_Uo
 
+---
+
+## Objectives and Results
+
+The specific objectives for the burger assembly and delivery process are as follows:
+* **Traffic Light Detection**: The robot should detect the traffic light and only start moving when it turns green.
+* **Burger Assembly**: The robot must stack the buns and patty to assemble the burger.
+* **Navigation and Obstacle Avoidance**: The robot must navigate through the obstacle course, which includes tight corridors, ramps, and cones in unknown positions.
+* **Gender Classification and Delivery**: The robot should perform customer face identification and deliver the burger to the correct customer.
+
+Results:
+* Successfully completed full multi-stage navigation, assembly, and delivery.
+* Navigated through multiple unknown obstacle configurations with zero collisions.
+* Achieved a 100% success rate on traffic light state detection and customer face identification.
+* Delivered an 87% grasp success rate across assembly with zero burger drops during ramp ascent and descent.
+
+---
+
+## Key Algorithms & Design Approach
+
+* **Hybrid Navigation Planner:** Combines Pure Pursuit path tracking with reactive Artificial Potential Fields (APF) at 10 Hz into a continuous resultant steering vector without discrete switching.
+* **Sensor Fusion & State Estimation:** Uses an extended Kalman Filter (EKF) to fuse wheel and LiDAR odometry for robust pose estimation.
+* **Traction Management:** Dynamically scales forward velocity based on steering sharpness and clamps angular velocity to 0.6 rad/s to mitigate wheel slip and wheel odometry drift.
+* **Dynamic Parameter Scheduling:** Schedules the Kalman Filter covariances and LiDAR repulsion boundary per path segment, preventing wall interference and chatter in tight corridors while maintaining obstacle avoidance capabilities.
+* **Multi-stage Perception Pipeline:** Integrates a lightweight YOLO network (416×416) for primary object detection (traffic signals, people, stop signs) paired with localized HSV and OpenCV template matching on extracted ROIs.
+
+---
+
 ## System Architecture
 
-**Low-Level Control (Arduino)**
-- Real-time motor control (DC, stepper, servo)
-- GPIO, LEDs, and button inputs
+**High-Level Autonomy (Raspberry Pi 5 + ROS 2)**
+- Manages FSM states, LiDAR scan transformations, and navigation planner
+- Executes YOLO object detection and classification
+
+**Low-Level Control (Arduino Mega 2560)**
+- Handles real-time control for DC motors (with wheel encoder feedback), linear actuator stepper motor, and gripper servo
 - UART communication to Raspberry Pi
 
-**High-Level Control (Raspberry Pi 5 + ROS2)**
-- Decision-making and path planning
-- Camera and GPS sensor processing
-- ROS2 node orchestration
+**Hardware**
+- Custom gripper design
+- Custom PCB integrates Arduino, motor drivers, and power management
 
-**Custom PCB**
-- Integrates Arduino, motor drivers, and power management
-- Standardized interface for educational reproducibility
+---
+
+## Robot CAD Model
+
+![hungre_image](assets/hungre.PNG)
+
+---
 
 ## Repository Structure
 
 ```
+├── assets/         Shared repo assets
+├── docs/           Cross-project architecture, protocol, and design docs
 ├── firmware/       Arduino firmware and firmware-specific docs
+├── mechanical/     CAD files for chassis and manipulators
+├── nuevo_board/    PCB design files (schematics, layouts, BOM)
 ├── nuevo_ui/       Raspberry Pi bridge + web UI
 ├── ros2_ws/        ROS2 workspace and Pi-side tests
-├── tlv_protocol/   TLV type definitions, payload schemas, generators
-├── NUEVO board/    PCB design files (schematics, layouts, BOM)
-├── mechanical/     CAD files for chassis and manipulators
-├── docs/           Cross-project architecture, protocol, and design docs
-└── assets/         Shared repo assets
+└── tlv_protocol/   TLV type definitions, payload schemas, generators
 ```
 
+---
 
-
-## Key Documents
+## Important Documents
 
 | Document | Purpose |
 |----------|---------|
@@ -47,10 +96,6 @@ https://youtu.be/lLfEOGIN_Uo
 | [firmware/docs/README.md](firmware/docs/README.md) | Firmware subsystem documentation index |
 | [NUEVO board/SPECIFICATIONS.md](NUEVO%20board/SPECIFICATIONS.md) | PCB hardware specifications |
 
-## Technologies
+---
 
-- **Embedded**: Arduino (C/C++)
-- **High-Level**: ROS2 (Python/C++), Raspberry Pi 5
-- **Communication**: UART serial protocol
-- **Sensors**: Camera, GPS, encoders
-- **Hardware**: Custom PCB, stepper/servo motors
+![hungre_image](assets/hungre.PNG)

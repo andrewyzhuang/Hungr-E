@@ -2,12 +2,16 @@
 
 An autonomous mobile manipulator developed in ROS 2 for "burger" assembly and delivery, featuring real-time LiDAR and camera processing, sensor fusion, path planning, and control.
 
+## Demo Video
+
+https://youtu.be/lLfEOGIN_Uo
+
 ---
 
 ## Table of Contents
-- [Demo Video](#demo-video)
-- [Objectives & Results](#objectives--results)
-- [Key Algorithms & Design Approach](#key-algorithms--design-approach)
+- [Objectives](#objectives)
+- [Key Results](#key-results)
+- [Autonomy Stack & Control Design](#autonomy-stack--control-design)
 - [System Architecture](#system-architecture)
 - [Robot CAD Model](#robot-cad-model)
 - [Repository Structure](#repository-structure)
@@ -15,37 +19,24 @@ An autonomous mobile manipulator developed in ROS 2 for "burger" assembly and de
 
 ---
 
-## Demo Video
-
-https://youtu.be/lLfEOGIN_Uo
-
----
-
-## Objectives and Results
-
-The specific objectives for the burger assembly and delivery process are as follows:
+## Objectives
 * **Traffic Light Detection**: The robot should detect the traffic light and only start moving when it turns green.
 * **Burger Assembly**: The robot must stack the buns and patty to assemble the burger.
 * **Navigation and Obstacle Avoidance**: The robot must navigate through the obstacle course, which includes tight corridors, ramps, and cones in unknown positions.
 * **Gender Classification and Delivery**: The robot should perform customer face identification and deliver the burger to the correct customer.
 
-Results:
+## Key Results
 * Successfully completed full multi-stage navigation, assembly, and delivery.
 * Navigated through multiple unknown obstacle configurations with zero collisions.
 * Achieved a 100% success rate on traffic light state detection and customer face identification.
 * Delivered an 87% grasp success rate across assembly with zero burger drops during ramp ascent and descent.
 
----
-
-## Key Algorithms & Design Approach
-
+## Autonomy Stack & Control Design
 * **Hybrid Navigation Planner:** Combines Pure Pursuit path tracking with reactive Artificial Potential Fields (APF) at 10 Hz into a continuous resultant steering vector without discrete switching.
 * **Sensor Fusion & State Estimation:** Uses an extended Kalman Filter (EKF) to fuse wheel and LiDAR odometry for robust pose estimation.
 * **Traction Management:** Dynamically scales forward velocity based on steering sharpness and clamps angular velocity to 0.6 rad/s to mitigate wheel slip and wheel odometry drift.
 * **Dynamic Parameter Scheduling:** Schedules the Kalman Filter covariances and LiDAR repulsion boundary per path segment, preventing wall interference and chatter in tight corridors while maintaining obstacle avoidance capabilities.
 * **Multi-stage Perception Pipeline:** Integrates a lightweight YOLO network (416×416) for primary object detection (traffic signals, people, stop signs) paired with localized HSV and OpenCV template matching on extracted ROIs.
-
----
 
 ## System Architecture
 
@@ -65,7 +56,7 @@ Results:
 
 ## Robot CAD Model
 
-![hungre_image](assets/hungre.PNG)
+![robot cad](assets/hungre_cad.png)
 
 ---
 
@@ -81,8 +72,6 @@ Results:
 ├── ros2_ws/        ROS2 workspace and Pi-side tests
 └── tlv_protocol/   TLV type definitions, payload schemas, generators
 ```
-
----
 
 ## Important Documents
 

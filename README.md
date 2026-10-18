@@ -29,7 +29,7 @@ https://youtu.be/lLfEOGIN_Uo
 * Successfully completed full multi-stage navigation, assembly, and delivery.
 * Navigated through multiple unknown obstacle configurations with zero collisions.
 * Achieved a 100% success rate on traffic light state detection and customer face identification.
-* Delivered an 87% grasp success rate across assembly with zero burger drops during ramp ascent and descent.
+* Delivered an 87% grasp success rate for assembly with zero burger drops during ramp ascent and descent.
 
 ## Autonomy Stack & Control Design
 * **Hybrid Navigation Planner:** Combines Pure Pursuit path tracking with reactive Artificial Potential Fields (APF) at 10 Hz into a continuous resultant steering vector without discrete switching.

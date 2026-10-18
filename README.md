@@ -37,6 +37,7 @@ https://youtu.be/lLfEOGIN_Uo
 * **Traction Management:** Dynamically scales forward velocity based on steering sharpness and clamps angular velocity to 0.6 rad/s to mitigate wheel slip and wheel odometry drift.
 * **Dynamic Parameter Scheduling:** Schedules the Kalman Filter covariances and LiDAR repulsion boundary per path segment, preventing wall interference and chatter in tight corridors while maintaining obstacle avoidance capabilities.
 * **Multi-stage Perception Pipeline:** Integrates a lightweight YOLO network (416×416) for primary object detection (traffic signals, people, stop signs) paired with localized HSV and OpenCV template matching on extracted ROIs.
+* **Docker Containerization:** Enables quick and predictable recovery when a Raspberry Pi breaks.
 
 ## System Architecture
 

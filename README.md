@@ -23,7 +23,7 @@ https://youtu.be/lLfEOGIN_Uo
 * **Traffic Light Detection**: The robot should detect the traffic light and only start moving when it turns green.
 * **Burger Assembly**: The robot must stack the buns and patty to assemble the burger.
 * **Navigation and Obstacle Avoidance**: The robot must navigate through the obstacle course, which includes tight corridors, ramps, and cones in unknown positions.
-* **Gender Classification and Delivery**: The robot should perform customer face identification and deliver the burger to the correct customer.
+* **Face Identification and Delivery**: The robot should perform customer face identification and deliver the burger to the correct customer.
 
 ## Key Results
 * Successfully completed full multi-stage navigation, assembly, and delivery.

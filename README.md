@@ -32,7 +32,7 @@ https://youtu.be/lLfEOGIN_Uo
 * Delivered an 87% grasp success rate for assembly with zero burger drops during ramp ascent and descent.
 
 ## Autonomy Stack & Control Design
-* **Hybrid Navigation Planner:** Combines Pure Pursuit path tracking with reactive Artificial Potential Fields (APF) at 10 Hz into a continuous resultant steering vector without discrete switching.
+* **Hybrid Navigation Planner:** Combines Pure Pursuit path tracking with reactive Artificial Potential Field (APF) planning into a continuous resultant velocity vector at 10 Hz without discrete switching.
 * **Sensor Fusion & State Estimation:** Uses an extended Kalman Filter (EKF) to fuse wheel and LiDAR odometry for robust pose estimation.
 * **Traction Management:** Dynamically scales forward velocity based on steering sharpness and clamps angular velocity to 0.6 rad/s to mitigate wheel slip and wheel odometry drift.
 * **Dynamic Parameter Scheduling:** Schedules the Kalman Filter covariances and LiDAR repulsion boundary per path segment, preventing wall interference and chatter in tight corridors while maintaining obstacle avoidance capabilities.
